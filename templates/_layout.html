@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/_layout.css">
+
+    <title>Cronograma de Tarefas</title>
+</head>
+<body>
+    <div id="wrap">
+        <header> 
+            <h1>Cronograma de tarefas</h1>
+        </header>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/new">Nova Tarefa</a>
+        </nav>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>&copy; 2024 Cronograma de tarefas - Xyz</footer>
+
+    </div>
+
+</body>
+</html>

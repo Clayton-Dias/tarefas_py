@@ -1,0 +1,30 @@
+{% extends '_layout.html' %}
+
+{% block content %}
+
+<h2>Criar Nova Tarefa</h2>
+
+<form action="/new" method="POST">
+    
+    <div>
+        <label for="name">Nome da tarefa <sup title="Digite um nome para sua nova tarefa.">(?)</sup>:</label>
+        <input type="text" name="name" id="name" required minlength="3"><br>
+    </div>
+    <div>
+        <label for="description">Descrição da tarefa <sup title="Digite a descrição da sua nova tarefa.">(?)</sup></label>
+        <textarea name="description" required minlength="5"></textarea>
+    </div>
+    <div>
+        <label for="expire">Data limite: <sup title="Seleciona uma data limite para sua nova tarefa."></sup></label><br>
+        <input type="datetime-local" name="expire" id="expire"><br>
+    </div>  
+    <div>
+        <button type="submit">Criar Tarefa</button>
+    </div>  
+    
+    <a href="/"><i class="fa-solid fa-house fa-fw"></i>Voltar</a>
+</form>
+
+
+
+{% endblock %}
