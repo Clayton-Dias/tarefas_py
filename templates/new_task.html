@@ -4,27 +4,50 @@
 
 <h2>Criar Nova Tarefa</h2>
 
+{% if page.created %}
+
+<p> Tarefa criada com sucesso !</p>
+
+{% endif %}
+
+<p> Preencha todos os campos para criar uma nova tarefa.</p>
+
 <form action="/new" method="POST">
     
     <div>
-        <label for="name">Nome da tarefa <sup title="Digite um nome para sua nova tarefa.">(?)</sup>:</label>
-        <input type="text" name="name" id="name" required minlength="3"><br>
+        <label for="name">Nome da tarefa <i class="fa-regular fa-circle-question fa-fw" title="Digite um nome para sua nova tarefa."></i> :</label>
+        <input type="text" name="name" id="name" required minlength="3">
     </div>
     <div>
-        <label for="description">Descrição da tarefa <sup title="Digite a descrição da sua nova tarefa.">(?)</sup></label>
+        <label for="description">Descrição da tarefa <i class="fa-regular fa-circle-question fa-fw" title="Digite a descrição da sua nova tarefa."></i></label>
         <textarea name="description" required minlength="5"></textarea>
     </div>
     <div>
-        <label for="expire">Data limite: <sup title="Seleciona uma data limite para sua nova tarefa."></sup></label><br>
-        <input type="datetime-local" name="expire" id="expire"><br>
+        <label for="expire">Data limite <i class="fa-regular fa-circle-question fa-fw"  title="Seleciona uma data limite para sua nova tarefa."></i>:</label>
+        <input type="datetime-local" name="expire" id="expire" required value="{{ page.date30 }}">
     </div>  
+    <!--
+    <div>
+        <label for="priority">Prioridade da tarefa <sup title="Selecione a prioridade da nova tarefa.">(?)</sup>:</label>
+        <select id="priority" name="priority">
+            <option value="low">Baixa</option>
+            <option value="medium">Média</option>
+            <option value="high">Alta</option>
+    </div>
+    -->
     <div>
         <button type="submit">Criar Tarefa</button>
     </div>  
     
-    <a href="/"><i class="fa-solid fa-house fa-fw"></i>Voltar</a>
+    <div>
+        <a href="/"><i class="fa-solid fa-left-long fa-fw" title="Voltar"></i></a>
+    </div>
+    
 </form>
 
-
+<script>
+    // Evita o reenvio dos formulários ao atualizar a página
+    if (window.history.replaceState) window.history.replaceState(null, null, window.location.href);
+</script>
 
 {% endblock %}

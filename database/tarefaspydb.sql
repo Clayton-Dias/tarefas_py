@@ -6,8 +6,9 @@ DROP DATABASE IF EXISTS tarefaspydb;
 -- Cria um novo banco de dados chamado "tarefaspydb" com charset e collation especificados
 CREATE DATABASE tarefaspydb 
     CHARACTER SET utf8mb4  -- Define a codificação de caracteres como utf8mb4
-    COLLATE utf8mb4_general_ci;  -- Define a collation como utf8mb4_general_ci
+    COLLATE utf8mb4_unicode_ci;  
 
+    
 -- Seleciona o banco de dados "tarefaspydb" para uso
 USE tarefaspydb;
 

@@ -3,7 +3,22 @@
 
 {% block content %}
 
-<h2>Tarefas</h2>
+{% if page.action == 'del' %}
+
+<p>Tarefa apagada com sucesso !</p>
+
+{% elif page.action == 'com' %}
+
+<p>Tarefa concluída com sucesso !</p>
+
+{% elif page.action == 'pen' %}
+
+<p>Tarefa marca como pendente com sucesso !</p>
+
+{% endif %}
+
+
+<h2>Tarefas Pendentes</h2>
     <table>
         <thead>
             <tr>
@@ -11,26 +26,33 @@
                 <th>Descrição</th>
                 <th>Prazo</th>
                 <th>Status</th>
-                <th>Prioridade</th>
+                <!-- <th>Prioridade</th> -->
+                <th>Ferramentas</th>                
             </tr>
         </thead>
         <tbody>
-            {% for task in tasks %}
-                <tr>
-                    <td>{{ task.name }}</td>
-                    <td>{{ task.description }}</td>
-                    <td>{{ task.expire }}</td>
-                    <td>{{ task.status }}</td>
-                    <td>{{ task.priority }}</td>
-                    <td>
-                        {% if task.status == 'pending' %}
-                            <a href="{{ url_for('complete_task', task_id=loop.index0) }}">Concluir</a>
-                        {% else %}
-                            <a href="{{ url_for('pending_task', task_id=loop.index0) }}">Marcar como Pendente</a>
-                        {% endif %}
-                        <a href="{{ url_for('delete_task', task_id=loop.index0) }}">Apagar</a>
-                    </td>
-                </tr>
+            {% for task in page.tasks %}
+                {% if task.status == 'pen' %}
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.expire }}</td>
+                        <td>{{ task.status }}</td>
+                        <!--<td>{{ task.priority }}</td>-->
+                        <td>
+                            {% if task.status == 'pen' %}
+                                <a href="/com/{{task.id}}"><i class="fa-solid fa-check fa-fw" title="Concluir"></i></a>
+                            {% else %}
+                                <a href="/pen/{{task.id}}"><i class="fa-solid fa-hourglass-half" title="Marcar como Pendente"></i></a>
+                            {% endif %}
+                            <small>
+                                <a href="/del/{{task.id}}"><i class="fa-solid fa-trash fa-fw" title="Apagar"></i></a>
+                                <a href="/edit"><i class="fa-solid fa-pen-to-square fa-fw" title="Editar"></i></a>
+                            </small>
+                            
+                        </td>
+                    </tr>
+                {% endif %}
             {% else %}
                 <tr>
                     <td colspan="5">Nenhuma tarefa disponível.</td>
@@ -38,6 +60,49 @@
             {% endfor %}
         </tbody>
     </table> 
+
+
+<h2>Tarefas Concluídas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Prazo</th>
+                <th>Status</th>
+                <th>Ferramentas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in page.tasks %}
+                {%if task.status == 'com'%}
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.expire }}</td>
+                        <td>{{ task.status }}</td>
+                        <!--<td>{{ task.priority }}</td>-->
+                        <td>
+                            {% if task.status == 'com' %}
+                                <a href="/pen/{{task.id}}"><i class="fa-solid fa-hourglass-half" title="Marcar como Pendente"></i></a>
+                            {% else %}
+                                <a href="/com/{{task.id}}"><i class="fa-solid fa-check fa-fw" title="Concluir"></i></a>
+                            {% endif %}
+                            <small>
+                                <a href="/del/{{task.id}}"><i class="fa-solid fa-trash fa-fw" title="Apagar"></i></a>
+                                <a href="/edit"><i class="fa-solid fa-pen-to-square fa-fw" title="Editar"></i></a>
+                            </small>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Nenhuma tarefa disponível.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 
 
 {% endblock %}
