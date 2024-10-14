@@ -2,29 +2,21 @@
 
 {% block content %}
 
-<h2>Criar Nova Tarefa</h2>
+<p> Preencha todos os campos para editar esta tarefa.</p>
 
-{% if page.created %}
-
-<p> Tarefa criada com sucesso !</p>
-
-{% endif %}
-
-<p> Preencha todos os campos para criar uma nova tarefa.</p>
-
-<form action="/new" method="POST">
+<form action="/edit/{{page.task.id}}" method="POST">
     
     <div>
         <label for="name">Nome da tarefa <i class="fa-regular fa-circle-question fa-fw" title="Digite um nome para sua nova tarefa."></i> :</label>
-        <input type="text" name="name" id="name" required minlength="3">
+        <input type="text" name="name" id="name" required minlength="3" value="{{page.task.name}}">
     </div>
     <div>
         <label for="description">Descrição da tarefa <i class="fa-regular fa-circle-question fa-fw" title="Digite a descrição da sua nova tarefa."></i></label>
-        <textarea name="description" required minlength="5"></textarea>
+        <textarea name="description" required minlength="5">{{page.task.description}}</textarea>
     </div>
     <div>
         <label for="expire">Data limite <i class="fa-regular fa-circle-question fa-fw"  title="Seleciona uma data limite para sua nova tarefa."></i>:</label>
-        <input type="datetime-local" name="expire" id="expire" required value="{{page.date30}}">
+        <input type="datetime-local" name="expire" id="expire" required value="{{page.task.expire}}">
     </div>  
     <!--
     <div>
@@ -36,9 +28,10 @@
     </div>
     -->
     <div>
-        <button type="submit">Criar Tarefa</button>
+        <button type="submit">Salvar</button>
     </div>  
-        
+
+     
 </form>
 
 <script>

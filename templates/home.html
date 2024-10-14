@@ -15,6 +15,10 @@
 
 <p>Tarefa marca como pendente com sucesso !</p>
 
+{% elif page.action == 'edit'%}
+
+<p>Tarefa editada com sucesso !</p>
+
 {% endif %}
 
 
@@ -36,7 +40,7 @@
                     <tr>
                         <td>{{ task.name }}</td>
                         <td>{{ task.description }}</td>
-                        <td>{{ task.expire }}</td>
+                        <td>{{ task.expirebr }}</td>
                         <td>{{ task.status }}</td>
                         <!--<td>{{ task.priority }}</td>-->
                         <td>
@@ -47,7 +51,7 @@
                             {% endif %}
                             <small>
                                 <a href="/del/{{task.id}}"><i class="fa-solid fa-trash fa-fw" title="Apagar"></i></a>
-                                <a href="/edit"><i class="fa-solid fa-pen-to-square fa-fw" title="Editar"></i></a>
+                                <a href="/edit/{{task.id}}"><i class="fa-solid fa-pen-to-square fa-fw" title="Editar"></i></a>
                             </small>
                             
                         </td>
@@ -79,7 +83,7 @@
                     <tr>
                         <td>{{ task.name }}</td>
                         <td>{{ task.description }}</td>
-                        <td>{{ task.expire }}</td>
+                        <td>{{ task.expirebr }}</td>
                         <td>{{ task.status }}</td>
                         <!--<td>{{ task.priority }}</td>-->
                         <td>
@@ -90,7 +94,7 @@
                             {% endif %}
                             <small>
                                 <a href="/del/{{task.id}}"><i class="fa-solid fa-trash fa-fw" title="Apagar"></i></a>
-                                <a href="/edit"><i class="fa-solid fa-pen-to-square fa-fw" title="Editar"></i></a>
+                                <a href="/edit/{{task.id}}"><i class="fa-solid fa-pen-to-square fa-fw" title="Editar"></i></a>
                             </small>
                         </td>
                     </tr>

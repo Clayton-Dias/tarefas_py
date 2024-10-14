@@ -35,12 +35,15 @@ h1, h2 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center; /* Centraliza o texto nas células */
+    border-bottom: 1px solid #ddd;
 }
 
 th {
@@ -52,52 +55,88 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
-/* Estilos para o formulário na nova tarefa */
+tbody tr:hover {
+    background-color: #f1f1f1; /* Altera a cor de fundo ao passar o mouse */
+}
+
+/* Estilo para os ícones */
+a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Estilo do formulário */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;  /* Espaçamento entre os campos */
-    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-form i {
-    color: red;
+/* Estilo dos campos do formulário */
+div {
+    margin-bottom: 15px;
 }
 
-form a i{
-    color: black;
-    margin-right: .5rem;
-}
-
+/* Estilo dos rótulos */
 label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-
-input,
-textarea {
+/* Estilo dos inputs e textarea */
+input[type="text"],
+textarea,
+input[type="datetime-local"] {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui o padding na largura total */
 }
 
+/* Estilo do botão */
 button {
-    background-color: #007bff;
+    background-color: #007BFF;
     color: white;
+    padding: 10px 15px;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
+/* Estilo do link de voltar */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
 @media (max-width: 600px) {
     table, thead, tbody, th, td, tr {
-        display: block;
+        display: block; /* Altera para exibição em bloco */
+        width: 100%; /* Toma toda a largura disponível */
+        box-sizing: border-box;
     }
 
     th {
@@ -121,5 +160,17 @@ button:hover {
         width: 50%;
         padding-left: 10px;
         text-align: left;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    /* Altera o tamanho dos inputs e botões */
+    input[type="text"],
+    textarea,
+    input[type="datetime-local"],
+    button {
+        font-size: 16px; /* Aumenta o tamanho da fonte */
     }
 }
