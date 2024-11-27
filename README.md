@@ -62,22 +62,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou env
 
 Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## Contato
-
-Se você tiver alguma dúvida, sinta-se à vontade para me contatar:
-
-- **Nome**: Seu Nome
-- **Email**: seuemail@example.com
-- **GitHub**: [seuusuario](https://github.com/seuusuario)
-
 ```
-
-### Personalização
-- **Nome do projeto**: Altere o título e a descrição para refletir o que seu projeto faz.
-- **Tecnologias**: Atualize as tecnologias usadas e adicione quaisquer outras que você tenha utilizado.
-- **Instruções de instalação**: Ajuste conforme necessário, especialmente se você estiver usando um framework específico.
-- **Estrutura do projeto**: Adapte essa seção para incluir todos os arquivos relevantes do seu projeto.
-- **Contato**: Substitua as informações de contato por suas próprias.
-
-### Adição
-Certifique-se de incluir um arquivo de licença se estiver disponibilizando o projeto publicamente e considere adicionar uma seção sobre a configuração do ambiente de desenvolvimento, se necessário.
